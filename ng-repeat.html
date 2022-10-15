@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/repeat.js"></script>
+</head>
+<body ng-app='app'>
+    <div ng-controller="repeatController">
+        <table>
+            <thead>
+                <tr>
+                    <td>FirstName</td>
+                    <td>LastName</td>
+                    <td>Gender</td>
+                    <td>Salary</td>
+                </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="employee in employees" >
+                <td>{{employee.firstName}} </td>
+                <td>{{employee.lastName}} </td>
+                <td>{{employee.gender}} </td>
+                <td>{{employee.salary}} </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <ul ng-repeat="employee in employees" >
+            <li>{{employee.firstName}} - {{$index}} </li>
+            <li>{{employee.lastName}} </li>
+            <li>{{employee.gender}} </li>
+            <li>{{employee.salary}} </li>
+            <ul ng-repeat="city in employee.cities">
+                <li>{{city.name}}- {{$index}} - {{$parent.$index}} </li>
+            </ul>
+        </ul>
+    </div>
+</body>
+</html>
